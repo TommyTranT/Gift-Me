@@ -43,7 +43,19 @@ app.get("/users/:id", async (req, res) => {
 
 // WISHLIST
 // create a new wishlist
+app.post("/wishlist", async (req, res) => {
+  try {
+    const { name, description, user_id } = req.body;
+    const newWishlist = await pool.query(
+      "INSERT INTO wishlists (name, description, user_id) VALUES ($1, $2, $3) RETURNING *",
+      [name, description, user_id]
+    );
 
+    res.json(newWishlist.rows[0]);
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 // select all wishlist
 
 // select a specific wishlist
