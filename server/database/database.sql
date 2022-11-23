@@ -1,24 +1,27 @@
-CREATE DATABASE pern-wishlist;
+CREATE DATABASE pern_wishlist;
 
-CREATE TABLE user(
+DROP TABLE IF EXISTS users CASCADE;
+CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username VARCHAR(255),
-  password VARCHAR(255),
-)
+  username VARCHAR(255) NOT NULL,
+  password VARCHAR(255)
+);
 
-CREATE TABLE wishlist(
+DROP TABLE IF EXISTS wishlists CASCADE;
+CREATE TABLE wishlists (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
+  name VARCHAR(255) NOT NULL,
   description VARCHAR(255),
-  user_id INT FOREIGN KEY REFERENCES user(id);
-)
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE NOT NULL
+);
 
-CREATE TABLE items(
+DROP TABLE IF EXISTS items  CASCADE;
+CREATE TABLE items (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
+  name VARCHAR(255) NOT NULL,
   description VARCHAR(255),
-  url VARCHAR(255),
-  img_url VARCHAR(255),
+  url VARCHAR,
+  img_url VARCHAR,
   price INT,
-  wishlist_id INT FOREIGN KEY REFERENCES wishlist(id);
-)
+  wishlist_id INTEGER NOT NULL REFERENCES wishlists(id) ON DELETE CASCADE NOT NULL
+);
