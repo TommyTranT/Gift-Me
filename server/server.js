@@ -146,7 +146,21 @@ app.put("/items/:id", async (req, res) => {
     console.error(error.message);
   }
 });
+
 // delete an item
+app.delete("/items/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteItem = await pool.query(
+      "DELETE FROM items WHERE item_id = $1",
+      [id]
+    );
+
+    res.json("Item was deleted!");
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
