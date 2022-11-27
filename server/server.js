@@ -31,7 +31,9 @@ app.post("/wishlists", async (req, res) => {
 // select all wishlist
 app.get("/wishlists", async (req, res) => {
   try {
-    const allWishlist = await pool.query("SELECT * FROM wishlists");
+    const allWishlist = await pool.query(
+      "SELECT * FROM wishlists ORDER BY wishlist_id"
+    );
 
     res.json(allWishlist.rows);
   } catch (error) {
@@ -70,7 +72,19 @@ app.put("/wishlists/:id", async (req, res) => {
 });
 
 // delete a wishlist
+app.delete("/wishlists/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteWishlist = await pool.query(
+      "DELETE FROM wishlists WHERE wishlist_id = $1",
+      [id]
+    );
 
+    res.json("Wishlist deleted!");
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 // ITEM
 // add a new item
 
