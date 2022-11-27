@@ -85,9 +85,22 @@ app.delete("/wishlists/:id", async (req, res) => {
     console.error(error.message);
   }
 });
+
 // ITEM
 // add a new item
+app.post("/items", async (req, res) => {
+  try {
+    const { name, description, url, img_url, price, wishlist_id } = req.body;
+    const addItem = await pool.query(
+      "INSERT INTO items(name, description, url, img_url, price, wishlist_id) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
+      [name, description, url, img_url, price, wishlist_id]
+    );
 
+    res.json(addItem.rows[0]);
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 // select all items
 
 // select a specific item
