@@ -132,7 +132,20 @@ app.get("/items/:id", async (req, res) => {
 });
 
 // update an item
+app.put("/items/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, description, url, img_url, price } = req.body;
+    const updateItem = await pool.query(
+      "UPDATE items SET name = $1, description = $2, url = $3, img_url = $4, price = $5",
+      [name, description, url, img_url, price]
+    );
 
+    res.json("Item updated!");
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 // delete an item
 
 app.listen(PORT, () => {
