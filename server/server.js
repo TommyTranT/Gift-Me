@@ -117,6 +117,19 @@ app.get("/items/show/:id", async (req, res) => {
 });
 
 // select a specific item
+app.get("/items/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const singleItem = await pool.query(
+      "SELECT * FROM items WHERE item_id = $1",
+      [id]
+    );
+
+    res.json(singleItem.rows[0]);
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 
 // update an item
 

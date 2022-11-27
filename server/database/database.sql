@@ -11,7 +11,7 @@ CREATE TABLE wishlists (
 
 DROP TABLE IF EXISTS items CASCADE;
 CREATE TABLE items (
-  id SERIAL PRIMARY KEY,
+  item_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   description VARCHAR(255),
   url VARCHAR,
