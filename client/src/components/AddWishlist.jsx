@@ -24,12 +24,14 @@ const AddWishlist = ({ wishlists, setWishlists }) => {
         <input
           type="text"
           className="input_name"
+          placeholder="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="text"
           className="input_description"
+          placeholder="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
