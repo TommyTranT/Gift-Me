@@ -6,13 +6,13 @@ import AddWishlist from "./components/AddWishlist";
 import ShowWishlist from "./components/ShowWishlist";
 
 function App() {
-  const [wishlist, setWishlist] = useState("");
+  const [wishlists, setWishlists] = useState([]);
 
   return (
     <>
       <div className="container">
-        <AddWishlist wishlist={wishlist} setWishlist={setWishlist} />
-        <ShowWishlist wishlist={wishlist} setWishlist={setWishlist} />
+        <AddWishlist wishlists={wishlists} setWishlists={setWishlists} />
+        <ShowWishlist wishlists={wishlists} setWishlists={setWishlists} />
       </div>
     </>
   );

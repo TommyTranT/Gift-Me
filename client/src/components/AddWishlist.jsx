@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 
-const AddWishlist = () => {
+const AddWishlist = ({ wishlists, setWishlists }) => {
+  // State for adding wishlist from form
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
@@ -12,6 +13,8 @@ const AddWishlist = () => {
     axios.post("http://localhost:8080/wishlists", body).then((res) => {
       setName("");
       setDescription("");
+
+      setWishlists([...wishlists, res.data]); // State for displaying wishlist plus new data
     });
   };
 
