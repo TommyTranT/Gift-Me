@@ -54,6 +54,20 @@ app.get("/wishlists/:id", async (req, res) => {
   }
 });
 // update a wishlist
+app.put("/wishlists/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, description } = req.body;
+    const updateWishlist = await pool.query(
+      "UPDATE wishlists SET name = $1, description = $2 WHERE wishlist_id = $3",
+      [name, description, id]
+    );
+
+    res.json("Wishlist info updated!");
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 
 // delete a wishlist
 
