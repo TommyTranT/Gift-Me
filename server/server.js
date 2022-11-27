@@ -12,38 +12,9 @@ app.use(express.json());
 
 // ROUTES
 
-// USERS
-// create a new user
-app.post("/users", async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const newUser = await pool.query(
-      "INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *",
-      [username, password]
-    );
-
-    res.json(newUser.rows[0]);
-    console.log("new user registered!");
-  } catch (error) {
-    console.error(error.message);
-  }
-});
-
-// get a specific user
-app.get("/users/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const user = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
-
-    res.json(user.rows[0]);
-  } catch (error) {
-    console.error(error.message);
-  }
-});
-
 // WISHLIST
 // create a new wishlist
-app.post("/wishlist", async (req, res) => {
+app.post("/wishlists", async (req, res) => {
   try {
     const { name, description, user_id } = req.body;
     const newWishlist = await pool.query(
@@ -56,7 +27,21 @@ app.post("/wishlist", async (req, res) => {
     console.error(error.message);
   }
 });
-// select all wishlist
+
+// select all wishlist from a specific user
+app.get("/wishlists", async (req, res) => {
+  try {
+    const { user_id } = req.body;
+    const allWishlist = await pool.query(
+      "SELECT * FROM wishlists WHERE user_id = $1",
+      [user.id]
+    );
+
+    res.json(allWishlist.rows);
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 
 // select a specific wishlist
 
