@@ -29,6 +29,15 @@ app.post("/wishlists", async (req, res) => {
 });
 
 // select all wishlist
+app.get("/wishlists", async (req, res) => {
+  try {
+    const allWishlist = await pool.query("SELECT * FROM wishlists");
+
+    res.json(allWishlist.rows[0]);
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 
 // select a specific wishlist
 
