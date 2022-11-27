@@ -33,14 +33,26 @@ app.get("/wishlists", async (req, res) => {
   try {
     const allWishlist = await pool.query("SELECT * FROM wishlists");
 
-    res.json(allWishlist.rows[0]);
+    res.json(allWishlist.rows);
   } catch (error) {
     console.error(error.message);
   }
 });
 
 // select a specific wishlist
+app.get("/wishlists/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const singleWishlist = await pool.query(
+      "SELECT * FROM wishlists WHERE wishlist_id = $1",
+      [id]
+    );
 
+    res.json(singleWishlist.rows[0]);
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 // update a wishlist
 
 // delete a wishlist
