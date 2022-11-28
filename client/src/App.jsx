@@ -34,7 +34,11 @@ function App() {
         />
 
         {/* Add new item to specific wishlist */}
-        <AddItem wishlistID={wishlistID} />
+        <AddItem
+          wishlistID={wishlistID}
+          showWishlists={showWishlists}
+          setShowWishlists={setShowWishlists}
+        />
       </div>
     </>
   );

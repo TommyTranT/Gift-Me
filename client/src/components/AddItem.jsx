@@ -1,16 +1,32 @@
 import axios from "axios";
 import { useState } from "react";
 
-const AddItem = ({ wishlistID }) => {
+const AddItem = ({ wishlistID, showWishlists, setShowWishlists }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
+  const [img_url, setImgUrl] = useState("");
   const [url, setUrl] = useState("");
 
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    const wishlist_id = wishlistID;
+    const body = { name, description, price, img_url, url, wishlist_id };
+
+    axios.post("http://localhost:8080/items", body).then((res) => {
+      setName("");
+      setDescription("");
+      setPrice("");
+      setImgUrl("");
+      setUrl("");
+
+      setShowWishlists([...showWishlists, res.data]);
+    });
+  };
+  console.log({ wishlistID });
   return (
     <>
-      <form>
+      <form onSubmit={onSubmitForm}>
         <input
           type="text"
           value={name}
@@ -31,7 +47,7 @@ const AddItem = ({ wishlistID }) => {
         ></input>
         <input
           type="text"
-          value={imgUrl}
+          value={img_url}
           onChange={(e) => setImgUrl(e.target.value)}
           placeholder="imgUrl"
         ></input>
