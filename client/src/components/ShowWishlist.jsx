@@ -1,15 +1,13 @@
 import axios from "axios";
 import { useEffect } from "react";
-import ShowItems from "./ShowItems";
 
 const ShowWishlist = ({
   wishlists,
   setWishlists,
-  selectWishlists,
-  setSelectWishlists,
-  showWishlists,
   setShowWishlists,
+  setWishlistID,
 }) => {
+  // Display all wishlist from database
   const getWishlist = () => {
     axios.get("http://localhost:8080/wishlists").then((res) => {
       setWishlists(res.data);
@@ -20,11 +18,13 @@ const ShowWishlist = ({
     getWishlist();
   }, []);
 
+  // Display all items from specific wishlist
   const getItems = (id) => {
     axios.get(`http://localhost:8080/items/show/${id}`).then((res) => {
       console.log(res.data);
       setShowWishlists(res.data);
     });
+    setWishlistID(id);
   };
 
   return (
@@ -39,13 +39,6 @@ const ShowWishlist = ({
           </button>
         </section>
       ))}
-
-      <section className="show_items">
-        <ShowItems
-          showWishlists={showWishlists}
-          setShowWishlists={setShowWishlists}
-        />
-      </section>
     </>
   );
 };
