@@ -3,12 +3,12 @@ import "./App.css";
 
 // components
 import AddWishlist from "./components/AddWishlist";
-import ShowItems from "./components/ShowItems";
 import ShowWishlist from "./components/ShowWishlist";
 
 function App() {
   const [wishlists, setWishlists] = useState([]); // Displays all wishlist
   const [selectWishlists, setSelectWishlists] = useState(""); //selectWishlists = wishlist_id
+  const [showWishlists, setShowWishlists] = useState([]);
 
   return (
     <>
@@ -19,9 +19,10 @@ function App() {
           setWishlists={setWishlists}
           selectWishlists={selectWishlists}
           setSelectWishlists={setSelectWishlists}
+          showWishlists={showWishlists}
+          setShowWishlists={setShowWishlists}
         />
         <p>What wishlist is selected: {selectWishlists}</p>
-        <ShowItems selectWishlists={selectWishlists} />
       </div>
     </>
   );
