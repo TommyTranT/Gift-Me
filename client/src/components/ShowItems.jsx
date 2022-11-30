@@ -1,7 +1,12 @@
-import AddItem from "./AddItem";
 import axios from "axios";
+import EditItem from "./EditItem";
 
-const ShowItems = ({ wishlists, showWishlists, setShowWishlists }) => {
+const ShowItems = ({
+  wishlists,
+  wishlistID,
+  showWishlists,
+  setShowWishlists,
+}) => {
   //showWishlists = items database
 
   const deleteItem = (id) => {
@@ -23,7 +28,7 @@ const ShowItems = ({ wishlists, showWishlists, setShowWishlists }) => {
           <p>{showWishlist.price}</p>
           <p>{showWishlist.img_url}</p>
           <p>{showWishlist.url}</p>
-          <button>Edit</button>
+          <EditItem showWishlist={showWishlist} />
           <button onClick={() => deleteItem(showWishlist.item_id)}>
             Delete
           </button>
