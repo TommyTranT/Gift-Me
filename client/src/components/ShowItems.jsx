@@ -14,6 +14,8 @@ const ShowItems = ({ wishlists, showWishlists }) => {
           <p>{showWishlist.price}</p>
           <p>{showWishlist.img_url}</p>
           <p>{showWishlist.url}</p>
+          <button>Edit</button>
+          <button>Delete</button>
         </section>
       ))}
     </>

@@ -20,7 +20,7 @@ const AddItem = ({ wishlistID, showWishlists, setShowWishlists }) => {
       setImgUrl("");
       setUrl("");
 
-      setShowWishlists([...showWishlists, res.data]);
+      setShowWishlists([...showWishlists, res.data]); // State for displaying wishlist plus new data
     });
   };
   console.log({ wishlistID });
