@@ -106,7 +106,7 @@ app.get("/items/show/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const allItem = await pool.query(
-      "SELECT * FROM items WHERE wishlist_id = $1",
+      "SELECT * FROM items WHERE wishlist_id = $1 ORDER BY item_id",
       [id]
     );
 
@@ -137,8 +137,8 @@ app.put("/items/:id", async (req, res) => {
     const { id } = req.params;
     const { name, description, url, img_url, price } = req.body;
     const updateItem = await pool.query(
-      "UPDATE items SET name = $1, description = $2, url = $3, img_url = $4, price = $5",
-      [name, description, url, img_url, price]
+      "UPDATE items SET name = $1, description = $2, url = $3, img_url = $4, price = $5 WHERE Item_id = $6",
+      [name, description, url, img_url, price, id]
     );
 
     res.json("Item updated!");

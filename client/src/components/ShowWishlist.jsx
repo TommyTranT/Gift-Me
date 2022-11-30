@@ -1,3 +1,9 @@
+/*
+Show Wishlist Component - Display all wishlists
+1. use axios get request to get wishlist and use effect to load them right away
+2. make each wishlist a button that will change what items are displayed based on wishlist selected
+*/
+
 import axios from "axios";
 import { useEffect } from "react";
 

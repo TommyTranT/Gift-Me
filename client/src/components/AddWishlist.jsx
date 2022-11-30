@@ -1,3 +1,11 @@
+/* Add Wishlist Component - Add a new wishlist from form submit
+1. set state to blanks for each input
+2. state change based on input on-change
+3. on-submit will make a axios post request with all of the state value
+4. reset all state to blank 
+5. change state to display items to previous data plus the new data response
+*/
+
 import axios from "axios";
 import { useState } from "react";
 

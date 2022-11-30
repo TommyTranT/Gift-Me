@@ -1,3 +1,9 @@
+/*
+Show Items Component - Display all items
+1. use axios get request to get items based on wishlist selected
+2. delete item based on item id using axios and filter state to not include that id
+*/
+
 import axios from "axios";
 import EditItem from "./EditItem";
 
@@ -28,7 +34,11 @@ const ShowItems = ({
           <p>{showWishlist.price}</p>
           <p>{showWishlist.img_url}</p>
           <p>{showWishlist.url}</p>
-          <EditItem showWishlist={showWishlist} />
+          <EditItem
+            showWishlist={showWishlist}
+            showWishlists={showWishlists}
+            setShowWishlists={setShowWishlists}
+          />
           <button onClick={() => deleteItem(showWishlist.item_id)}>
             Delete
           </button>
