@@ -37,18 +37,37 @@ const ShowItems = ({
 
       {showWishlists.map((showWishlist) => (
         <section className="show_items" key={showWishlist.item_id}>
-          <h1>{showWishlist.name}</h1>
-          <p>{showWishlist.description}</p>
-          <p>{showWishlist.price}</p>
-          <p>{showWishlist.img_url}</p>
-          <p>{showWishlist.url}</p>
-          <EditItem
-            showWishlist={showWishlist}
-            setShowWishlists={setShowWishlists}
-          />
-          <button onClick={() => deleteItem(showWishlist.item_id)}>
-            Delete
-          </button>
+          <Card sx={{ maxWidth: 345, maxHeight: 500 }}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="345"
+                image={showWishlist.img_url}
+                alt="item_image"
+              ></CardMedia>
+              <CardContent>
+                <Typography gutterBottom variant="h5">
+                  {showWishlist.name}
+                </Typography>
+                <Typography gutterBottom variant="h5">
+                  {showWishlist.description}
+                </Typography>
+                <Typography gutterBottom variant="h5">
+                  ${showWishlist.price}
+                </Typography>
+                <Button href={showWishlist.url} target="_blank">
+                  Link
+                </Button>
+                <EditItem
+                  showWishlist={showWishlist}
+                  setShowWishlists={setShowWishlists}
+                />
+                <button onClick={() => deleteItem(showWishlist.item_id)}>
+                  Delete
+                </button>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </section>
       ))}
     </>

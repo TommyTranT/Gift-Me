@@ -44,6 +44,15 @@ function App() {
           setWishlistName={setWishlistName}
         />
 
+        {/* Add new item to specific wishlist */}
+        <br />
+        {/* <h1>{wishlistName}</h1> */}
+        <AddItem
+          wishlistID={wishlistID}
+          showWishlists={showWishlists}
+          setShowWishlists={setShowWishlists}
+        />
+
         {/* Display all items for each wishlist */}
         <ShowItems
           showWishlists={showWishlists}
@@ -51,13 +60,6 @@ function App() {
           wishlists={wishlists}
           wishlistID={wishlistID}
           wishlistName={wishlistName}
-        />
-
-        {/* Add new item to specific wishlist */}
-        <AddItem
-          wishlistID={wishlistID}
-          showWishlists={showWishlists}
-          setShowWishlists={setShowWishlists}
         />
       </div>
     </>
