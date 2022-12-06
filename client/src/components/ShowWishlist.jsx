@@ -5,7 +5,7 @@ Show Wishlist Component - Display all wishlists
 */
 
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import EditWishlist from "./EditWishlist";
 
 const ShowWishlist = ({

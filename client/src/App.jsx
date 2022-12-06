@@ -7,6 +7,8 @@ import ShowWishlist from "./components/ShowWishlist";
 import AddItem from "./components/AddItem";
 import ShowItems from "./components/ShowItems";
 
+// material ui
+
 function App() {
   const [wishlists, setWishlists] = useState([]); // Displays all wishlist
   const [showWishlists, setShowWishlists] = useState([]); // Displays items based on wishlist selected
@@ -14,7 +16,7 @@ function App() {
 
   return (
     <>
-      <div className="container">
+      <div className="display:flex">
         {/* Add a new wishlist Form */}
         <AddWishlist wishlists={wishlists} setWishlists={setWishlists} />
 
