@@ -15,14 +15,12 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
 const AddWishlist = ({ wishlists, setWishlists }) => {
   // State for adding wishlist from form
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-
   const [open, setOpen] = useState(false); // state to show dialog form
 
   const onSubmitForm = (e) => {
@@ -43,7 +41,7 @@ const AddWishlist = ({ wishlists, setWishlists }) => {
   };
 
   const handleClickClose = () => {
-    setOpen(false);
+    setOpen(false); // Close the dialog form
   };
 
   return (
