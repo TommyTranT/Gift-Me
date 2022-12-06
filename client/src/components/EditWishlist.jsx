@@ -1,8 +1,15 @@
+/*
+Edit wishlist - Update wishlist name and description on form submit
+1. Pass down wishlist info and state to change wishlists displayed
+2. on change, update state and run axios query
+3. change state to new data
+*/
+
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
 
-const EditWishlist = ({ wishlist, wishlists, setWishlists }) => {
+const EditWishlist = ({ wishlist, setWishlists }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 

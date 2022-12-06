@@ -59,11 +59,7 @@ const ShowWishlist = ({
               Delete
             </button>
           </div>
-          <EditWishlist
-            wishlists={wishlists}
-            wishlist={wishlist}
-            setWishlists={setWishlists}
-          />
+          <EditWishlist wishlist={wishlist} setWishlists={setWishlists} />
         </section>
       ))}
     </>
