@@ -83,24 +83,8 @@ const EditWishlist = ({ wishlist, setWishlists }) => {
           </Button>
         </DialogActions>
       </Dialog>
-      <form onSubmit={(e) => updateWishlist(e)}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder={wishlist.name}
-        />
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder={wishlist.description}
-        />
-        <button>Edit</button>
-      </form>
     </div>
   );
 };
 
 export default EditWishlist;
-<input type="text" />;
