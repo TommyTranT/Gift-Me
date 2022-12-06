@@ -11,12 +11,21 @@ Edit Item Component - Updates each item on form submit
 import axios from "axios";
 import { useState } from "react";
 
+// material ui
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+
 const EditItem = ({ showWishlist, setShowWishlists }) => {
   const [name, setName] = useState(showWishlist.name);
   const [description, setDescription] = useState(showWishlist.description);
   const [price, setPrice] = useState(showWishlist.price);
   const [img_url, setImgUrl] = useState(showWishlist.img_url);
   const [url, setUrl] = useState(showWishlist.url);
+  const [open, setOpen] = useState(false); // state to show dialog form
 
   const updateItem = (e) => {
     e.preventDefault();
@@ -29,45 +38,88 @@ const EditItem = ({ showWishlist, setShowWishlists }) => {
         .get(`http://localhost:8080/items/show/${wishListId}`)
         .then((res) => {
           setShowWishlists(res.data);
+          setOpen(false); // Close the dialog form
         });
     });
   };
 
+  const handleClickOpen = () => {
+    setOpen(true); // Open the dialog form
+  };
+
+  const handleClickClose = () => {
+    setOpen(false); // Close the dialog form
+  };
   return (
     <>
-      <form onSubmit={(e) => updateItem(e)}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder={showWishlist.name}
-        ></input>
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder={showWishlist.description}
-        ></input>
-        <input
-          type="text"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          placeholder={showWishlist.price}
-        ></input>
-        <input
-          type="text"
-          value={img_url}
-          onChange={(e) => setImgUrl(e.target.value)}
-          placeholder={showWishlist.img_url}
-        ></input>
-        <input
-          type="text"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          placeholder={showWishlist.url}
-        ></input>
-        <button>Update Item</button>
-      </form>
+      <Button variant="contained" onClick={handleClickOpen}>
+        Edit Item
+      </Button>
+      <Dialog open={open} onClose={handleClickClose}>
+        <DialogTitle>Edit Item</DialogTitle>
+        <DialogContent>
+          <TextField
+            type="text"
+            label="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            autoComplete="off"
+            margin="dense"
+            variant="standard"
+            fullWidth
+            placeholder={showWishlist.name}
+          ></TextField>
+          <TextField
+            type="text"
+            label="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            autoComplete="off"
+            margin="dense"
+            variant="standard"
+            fullWidth
+            placeholder={showWishlist.description}
+          ></TextField>
+          <TextField
+            type="number"
+            label="Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            autoComplete="off"
+            margin="dense"
+            variant="standard"
+            fullWidth
+            placeholder={showWishlist.price}
+          ></TextField>
+          <TextField
+            type="text"
+            label="Picture URL"
+            value={img_url}
+            onChange={(e) => setImgUrl(e.target.value)}
+            autoComplete="off"
+            margin="dense"
+            variant="standard"
+            fullWidth
+            placeholder={showWishlist.img_url}
+          ></TextField>
+          <TextField
+            type="text"
+            label="Direct Link"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            autoComplete="off"
+            margin="dense"
+            variant="standard"
+            fullWidth
+            placeholder={showWishlist.url}
+          ></TextField>
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" onClick={updateItem}>
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };
