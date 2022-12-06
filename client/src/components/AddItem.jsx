@@ -115,8 +115,6 @@ const AddItem = ({ wishlistID, showWishlists, setShowWishlists }) => {
           </Button>
         </DialogActions>
       </Dialog>
-
-      <h1>What wishlist is selected: {wishlistID}</h1>
     </>
   );
 };

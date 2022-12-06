@@ -7,11 +7,19 @@ Show Items Component - Display all items
 import axios from "axios";
 import EditItem from "./EditItem";
 
+// material ui
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { Button, CardActionArea, CardActions } from "@mui/material";
+
 const ShowItems = ({
   wishlists,
   wishlistID,
   showWishlists,
   setShowWishlists,
+  wishlistName,
 }) => {
   //showWishlists = items database
 
@@ -25,7 +33,7 @@ const ShowItems = ({
 
   return (
     <>
-      <h1>{wishlists.name}</h1>
+      <h1>{wishlistName}</h1>
 
       {showWishlists.map((showWishlist) => (
         <section className="show_items" key={showWishlist.item_id}>

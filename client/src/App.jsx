@@ -27,6 +27,7 @@ function App() {
   const [wishlists, setWishlists] = useState([]); // Displays all wishlist
   const [showWishlists, setShowWishlists] = useState([]); // Displays items based on wishlist selected
   const [wishlistID, setWishlistID] = useState(""); // wishlistID === the selected wishlist ID
+  const [wishlistName, setWishlistName] = useState(""); // wishlistID === the selected wishlist ID
 
   return (
     <>
@@ -40,6 +41,7 @@ function App() {
           setWishlists={setWishlists}
           setShowWishlists={setShowWishlists}
           setWishlistID={setWishlistID}
+          setWishlistName={setWishlistName}
         />
 
         {/* Display all items for each wishlist */}
@@ -47,6 +49,8 @@ function App() {
           showWishlists={showWishlists}
           setShowWishlists={setShowWishlists}
           wishlists={wishlists}
+          wishlistID={wishlistID}
+          wishlistName={wishlistName}
         />
 
         {/* Add new item to specific wishlist */}

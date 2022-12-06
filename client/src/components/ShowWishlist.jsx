@@ -13,6 +13,7 @@ const ShowWishlist = ({
   setWishlists,
   setShowWishlists,
   setWishlistID,
+  setWishlistName,
 }) => {
   // Display all wishlist from database
   const getWishlist = () => {
@@ -35,13 +36,14 @@ const ShowWishlist = ({
     axios.put(`http://localhost:8080/wishlists/${id}`).then();
   };
 
-  // Display all items from specific wishlist
-  const getItems = (id) => {
+  // State that determines which items are displayed based on wishlist selected
+  const getItems = (id, name) => {
     axios.get(`http://localhost:8080/items/show/${id}`).then((res) => {
       console.log(res.data);
       setShowWishlists(res.data);
     });
-    setWishlistID(id);
+    setWishlistID(id); // State to send wishlist id
+    setWishlistName(name); // State to display wishlist name
   };
 
   return (
@@ -50,7 +52,7 @@ const ShowWishlist = ({
         <section className="show_wishlist" key={wishlist.wishlist_id}>
           <button
             className="name"
-            onClick={() => getItems(wishlist.wishlist_id)} // Change state of which items to display
+            onClick={() => getItems(wishlist.wishlist_id, wishlist.name)} // Change state of which items to display
           >
             {wishlist.name}
           </button>
