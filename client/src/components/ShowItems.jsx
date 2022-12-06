@@ -36,7 +36,6 @@ const ShowItems = ({
           <p>{showWishlist.url}</p>
           <EditItem
             showWishlist={showWishlist}
-            showWishlists={showWishlists}
             setShowWishlists={setShowWishlists}
           />
           <button onClick={() => deleteItem(showWishlist.item_id)}>

@@ -6,6 +6,7 @@ Show Wishlist Component - Display all wishlists
 
 import axios from "axios";
 import { useEffect } from "react";
+import EditWishlist from "./EditWishlist";
 
 const ShowWishlist = ({
   wishlists,
@@ -30,6 +31,10 @@ const ShowWishlist = ({
     });
   };
 
+  const editWishlist = (id) => {
+    axios.put(`http://localhost:8080/wishlists/${id}`).then();
+  };
+
   // Display all items from specific wishlist
   const getItems = (id) => {
     axios.get(`http://localhost:8080/items/show/${id}`).then((res) => {
@@ -50,11 +55,15 @@ const ShowWishlist = ({
             {wishlist.name}
           </button>
           <div>
-            <button>Edit</button>
             <button onClick={() => deleteWishlist(wishlist.wishlist_id)}>
               Delete
             </button>
           </div>
+          <EditWishlist
+            wishlists={wishlists}
+            wishlist={wishlist}
+            setWishlists={setWishlists}
+          />
         </section>
       ))}
     </>
