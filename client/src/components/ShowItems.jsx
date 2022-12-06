@@ -37,7 +37,7 @@ const ShowItems = ({
 
       {showWishlists.map((showWishlist) => (
         <section className="show_items" key={showWishlist.item_id}>
-          <Card sx={{ maxWidth: 345, maxHeight: 500 }}>
+          <Card sx={{ maxWidth: 345, maxHeight: 540 }}>
             <CardActionArea>
               <CardMedia
                 component="img"
