@@ -24,6 +24,12 @@ const ShowWishlist = ({
     getWishlist();
   }, []);
 
+  const deleteWishlist = (id) => {
+    axios.delete(`http://localhost:8080/wishlists/${id}`).then((res) => {
+      setWishlists(wishlists.filter((wishlist) => wishlist.wishlist_id !== id));
+    });
+  };
+
   // Display all items from specific wishlist
   const getItems = (id) => {
     axios.get(`http://localhost:8080/items/show/${id}`).then((res) => {
@@ -43,6 +49,12 @@ const ShowWishlist = ({
           >
             {wishlist.name}
           </button>
+          <div>
+            <button>Edit</button>
+            <button onClick={() => deleteWishlist(wishlist.wishlist_id)}>
+              Delete
+            </button>
+          </div>
         </section>
       ))}
     </>
