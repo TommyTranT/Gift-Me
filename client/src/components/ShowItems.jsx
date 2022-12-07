@@ -49,12 +49,16 @@ const ShowItems = ({
           <section
             className="show_items"
             key={showWishlist.item_id}
-            style={{ marginBottom: "25px" }}
+            style={{
+              marginBottom: "25px",
+              marginRight: "3px",
+              marginLeft: "3px",
+            }}
           >
             <Card
               sx={{
-                maxWidth: 300,
-                minWidth: 300,
+                maxWidth: 290,
+                minWidth: 290,
                 minHeight: 440,
                 maxHeight: 440,
                 marginTop: "15px",
