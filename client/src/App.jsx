@@ -7,6 +7,7 @@ import ShowWishlist from "./components/ShowWishlist";
 import AddItem from "./components/AddItem";
 import ShowItems from "./components/ShowItems";
 import Homepage from "./components/Homepage";
+import styles from "./style";
 
 // material ui
 import { styled, useTheme } from "@mui/material/styles";
@@ -108,7 +109,7 @@ function App() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h3" noWrap component="div">
             🎁 Gift Me 🎁
           </Typography>
         </Toolbar>

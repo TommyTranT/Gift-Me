@@ -49,7 +49,7 @@ const AddWishlist = ({ wishlists, setWishlists }) => {
     <>
       <Button variant="contained" onClick={handleClickOpen} color="success">
         <AddIcon />
-        New List
+        New Wishlist
       </Button>
       <Dialog open={open} onClose={handleClickClose}>
         <DialogTitle>New Wishlist</DialogTitle>

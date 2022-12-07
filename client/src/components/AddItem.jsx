@@ -15,6 +15,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import AddIcon from "@mui/icons-material/Add";
 
 const AddItem = ({ wishlistID, showWishlists, setShowWishlists }) => {
   const [name, setName] = useState("");
@@ -52,8 +53,9 @@ const AddItem = ({ wishlistID, showWishlists, setShowWishlists }) => {
   console.log({ wishlistID });
   return (
     <>
-      <Button variant="contained" onClick={handleClickOpen}>
-        Add Item
+      <Button variant="contained" onClick={handleClickOpen} color="success">
+        <AddIcon />
+        New Item
       </Button>
       <Dialog open={open} onClose={handleClickClose}>
         <DialogTitle>Add an Item</DialogTitle>
