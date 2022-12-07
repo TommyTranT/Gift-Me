@@ -82,6 +82,9 @@ const EditWishlist = ({ wishlist, setWishlists }) => {
           <Button variant="contained" onClick={updateWishlist}>
             Save
           </Button>
+          <Button variant="contained" onClick={handleClickClose}>
+            Cancel
+          </Button>
         </DialogActions>
       </Dialog>
     </>
