@@ -38,7 +38,7 @@ function App() {
   const theme = useTheme();
   const [open, setOpen] = useState(false); // state for opening side bar
 
-  const drawerWidth = 260;
+  const drawerWidth = 290;
 
   const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     ({ theme, open }) => ({
