@@ -8,6 +8,7 @@ import AddItem from "./components/AddItem";
 import ShowItems from "./components/ShowItems";
 
 // material ui
+import { styled, useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -22,6 +23,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { CssBaseline } from "@mui/material";
+import MuiAppBar from "@mui/material/AppBar";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 function App() {
   const [wishlists, setWishlists] = useState([]); // Displays all wishlist
@@ -29,20 +34,122 @@ function App() {
   const [wishlistID, setWishlistID] = useState(""); // wishlistID === the selected wishlist ID
   const [wishlistName, setWishlistName] = useState(""); // wishlistID === the selected wishlist ID
 
+  // material ui
+  const drawerWidth = 240;
+
+  const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
+    ({ theme, open }) => ({
+      flexGrow: 1,
+      padding: theme.spacing(3),
+      transition: theme.transitions.create("margin", {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      marginLeft: `-${drawerWidth}px`,
+      ...(open && {
+        transition: theme.transitions.create("margin", {
+          easing: theme.transitions.easing.easeOut,
+          duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginLeft: 0,
+      }),
+    })
+  );
+  const AppBar = styled(MuiAppBar, {
+    shouldForwardProp: (prop) => prop !== "open",
+  })(({ theme, open }) => ({
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    ...(open && {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: `${drawerWidth}px`,
+      transition: theme.transitions.create(["margin", "width"], {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    }),
+  }));
+
+  const DrawerHeader = styled("div")(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+    justifyContent: "flex-end",
+  }));
+
+  const theme = useTheme();
+  const [open, setOpen] = useState(false); // state for opening side bar
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
   return (
-    <>
-      <div className="display:flex">
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
+      <AppBar position="fixed" open={open}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{ mr: 2, ...(open && { display: "none" }) }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            🎁 Gift Me 🎁
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
+        }}
+        variant="persistent"
+        anchor="left"
+        open={open}
+      >
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <List>
+          <ShowWishlist
+            wishlists={wishlists}
+            setWishlists={setWishlists}
+            setShowWishlists={setShowWishlists}
+            setWishlistID={setWishlistID}
+            setWishlistName={setWishlistName}
+          />
+        </List>
+      </Drawer>
+      <Main>
+        <DrawerHeader />
+
         {/* Add a new wishlist Form */}
         <AddWishlist wishlists={wishlists} setWishlists={setWishlists} />
 
         {/* Display all wishlist */}
-        <ShowWishlist
-          wishlists={wishlists}
-          setWishlists={setWishlists}
-          setShowWishlists={setShowWishlists}
-          setWishlistID={setWishlistID}
-          setWishlistName={setWishlistName}
-        />
 
         {/* Add new item to specific wishlist */}
         <br />
@@ -52,7 +159,6 @@ function App() {
           showWishlists={showWishlists}
           setShowWishlists={setShowWishlists}
         />
-
         {/* Display all items for each wishlist */}
         <ShowItems
           showWishlists={showWishlists}
@@ -61,8 +167,8 @@ function App() {
           wishlistID={wishlistID}
           wishlistName={wishlistName}
         />
-      </div>
-    </>
+      </Main>
+    </Box>
   );
 }
 
