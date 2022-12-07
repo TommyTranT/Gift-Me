@@ -53,10 +53,10 @@ const ShowItems = ({
           >
             <Card
               sx={{
-                minWidth: 300,
                 maxWidth: 300,
-                minHeight: 410,
-                maxHeight: 410,
+                minWidth: 300,
+                minHeight: 440,
+                maxHeight: 440,
                 marginTop: "15px",
               }}
             >
@@ -68,16 +68,24 @@ const ShowItems = ({
                   alt="item_image"
                 ></CardMedia>
                 <CardContent>
-                  <Typography gutterBottom style={{ textAlign: "center" }}>
-                    {showWishlist.name}
-                  </Typography>
-
                   <Typography
                     gutterBottom
                     style={{ textAlign: "center", fontWeight: "bold" }}
                   >
-                    ${showWishlist.price}{" "}
+                    {showWishlist.name}
                   </Typography>
+
+                  <Typography gutterBottom style={{ textAlign: "center" }}>
+                    ${showWishlist.price}
+                  </Typography>
+
+                  <Typography
+                    gutterBottom
+                    style={{ textAlign: "center", fontStyle: "italic" }}
+                  >
+                    {showWishlist.description}
+                  </Typography>
+
                   <div style={{ textAlign: "center" }}>
                     <Button href={showWishlist.url} target="_blank">
                       <OpenInNewIcon />
