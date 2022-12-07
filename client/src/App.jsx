@@ -6,6 +6,7 @@ import AddWishlist from "./components/AddWishlist";
 import ShowWishlist from "./components/ShowWishlist";
 import AddItem from "./components/AddItem";
 import ShowItems from "./components/ShowItems";
+import Homepage from "./components/Homepage";
 
 // material ui
 import { styled, useTheme } from "@mui/material/styles";
@@ -162,7 +163,7 @@ function App() {
               setShowWishlists={setShowWishlists}
             />
           ) : (
-            <h1>FUCK YOU TRACY</h1>
+            <Homepage />
           )}
         </div>
 
