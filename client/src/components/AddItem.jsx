@@ -52,8 +52,13 @@ const AddItem = ({ wishlistID, showWishlists, setShowWishlists }) => {
 
   console.log({ wishlistID });
   return (
-    <>
-      <Button variant="contained" onClick={handleClickOpen} color="success">
+    <div style={{ textAlign: "center" }}>
+      <Button
+        variant="contained"
+        onClick={handleClickOpen}
+        color="success"
+        size="large"
+      >
         <AddIcon />
         New Item
       </Button>
@@ -117,7 +122,7 @@ const AddItem = ({ wishlistID, showWishlists, setShowWishlists }) => {
           </Button>
         </DialogActions>
       </Dialog>
-    </>
+    </div>
   );
 };
 
