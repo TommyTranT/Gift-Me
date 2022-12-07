@@ -7,6 +7,9 @@ Show Wishlist Component - Display all wishlists
 import axios from "axios";
 import { useEffect, useState } from "react";
 import EditWishlist from "./EditWishlist";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 
 const ShowWishlist = ({
   wishlists,
@@ -49,20 +52,18 @@ const ShowWishlist = ({
   return (
     <>
       {wishlists.map((wishlist) => (
-        <section className="show_wishlist" key={wishlist.wishlist_id}>
-          <button
+        <ListItem className="show_wishlist" key={wishlist.wishlist_id}>
+          <ListItemButton
             className="name"
             onClick={() => getItems(wishlist.wishlist_id, wishlist.name)} // Change state of which items to display
           >
-            {wishlist.name}
+            <ListItemText primary={wishlist.name} />
+          </ListItemButton>
+          <button onClick={() => deleteWishlist(wishlist.wishlist_id)}>
+            D
           </button>
-          <div>
-            <button onClick={() => deleteWishlist(wishlist.wishlist_id)}>
-              Delete
-            </button>
-          </div>
           <EditWishlist wishlist={wishlist} setWishlists={setWishlists} />
-        </section>
+        </ListItem>
       ))}
     </>
   );
