@@ -33,6 +33,7 @@ function App() {
   const [showWishlists, setShowWishlists] = useState([]); // Displays items based on wishlist selected
   const [wishlistID, setWishlistID] = useState(""); // wishlistID === the selected wishlist ID
   const [wishlistName, setWishlistName] = useState(""); // wishlistID === the selected wishlist ID
+  const [wishlistDescription, setWishlistDescription] = useState("");
 
   // material ui
   const theme = useTheme();
@@ -147,6 +148,7 @@ function App() {
             setShowWishlists={setShowWishlists}
             setWishlistID={setWishlistID}
             setWishlistName={setWishlistName}
+            setWishlistDescription={setWishlistDescription}
           />
         </List>
       </Drawer>
@@ -159,11 +161,23 @@ function App() {
           style={{
             textAlign: "center",
             fontSize: "50px",
-            marginBottom: "10px",
+            marginBottom: "7px",
           }}
         >
           {wishlistName}
         </h1>
+
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "25px",
+            fontStyle: "italic",
+            marginTop: "0px",
+          }}
+        >
+          {wishlistDescription}
+        </p>
+
         <div>
           {wishlistID ? (
             <AddItem
