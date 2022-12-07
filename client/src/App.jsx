@@ -35,6 +35,9 @@ function App() {
   const [wishlistName, setWishlistName] = useState(""); // wishlistID === the selected wishlist ID
 
   // material ui
+  const theme = useTheme();
+  const [open, setOpen] = useState(false); // state for opening side bar
+
   const drawerWidth = 240;
 
   const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -55,6 +58,7 @@ function App() {
       }),
     })
   );
+
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== "open",
   })(({ theme, open }) => ({
@@ -80,9 +84,6 @@ function App() {
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
   }));
-
-  const theme = useTheme();
-  const [open, setOpen] = useState(false); // state for opening side bar
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -124,6 +125,8 @@ function App() {
         open={open}
       >
         <DrawerHeader>
+          {/* Add a new wishlist Form */}
+          <AddWishlist wishlists={wishlists} setWishlists={setWishlists} />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
@@ -134,6 +137,7 @@ function App() {
         </DrawerHeader>
         <Divider />
         <List>
+          {/* Display all wishlist */}
           <ShowWishlist
             wishlists={wishlists}
             setWishlists={setWishlists}
@@ -143,13 +147,8 @@ function App() {
           />
         </List>
       </Drawer>
-      <Main>
+      <Main open={open}>
         <DrawerHeader />
-
-        {/* Add a new wishlist Form */}
-        <AddWishlist wishlists={wishlists} setWishlists={setWishlists} />
-
-        {/* Display all wishlist */}
 
         {/* Add new item to specific wishlist */}
         <br />
