@@ -155,7 +155,15 @@ function App() {
 
         {/* Add new item to specific wishlist */}
 
-        {/* <h1>{wishlistName}</h1> */}
+        <h1
+          style={{
+            textAlign: "center",
+            fontSize: "50px",
+            marginBottom: "10px",
+          }}
+        >
+          {wishlistName}
+        </h1>
         <div>
           {wishlistID ? (
             <AddItem
