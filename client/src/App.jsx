@@ -90,6 +90,9 @@ function App() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  if (wishlistID === "") {
+  }
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -149,13 +152,20 @@ function App() {
         <DrawerHeader />
 
         {/* Add new item to specific wishlist */}
-        <br />
+
         {/* <h1>{wishlistName}</h1> */}
-        <AddItem
-          wishlistID={wishlistID}
-          showWishlists={showWishlists}
-          setShowWishlists={setShowWishlists}
-        />
+        <div>
+          {wishlistID ? (
+            <AddItem
+              wishlistID={wishlistID}
+              showWishlists={showWishlists}
+              setShowWishlists={setShowWishlists}
+            />
+          ) : (
+            <h1>FUCK YOU TRACY</h1>
+          )}
+        </div>
+
         {/* Display all items for each wishlist */}
         <ShowItems
           showWishlists={showWishlists}
