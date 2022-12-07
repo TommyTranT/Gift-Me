@@ -16,6 +16,6 @@ CREATE TABLE items (
   description VARCHAR(255),
   url VARCHAR,
   img_url VARCHAR,
-  price INT,
+  price decimal(10,2),
   wishlist_id INTEGER NOT NULL REFERENCES wishlists(wishlist_id) ON DELETE CASCADE NOT NULL
 );
