@@ -16,6 +16,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import EditIcon from "@mui/icons-material/Edit";
 
 const EditWishlist = ({ wishlist, setWishlists }) => {
   const [name, setName] = useState("");
@@ -47,9 +48,9 @@ const EditWishlist = ({ wishlist, setWishlists }) => {
   };
 
   return (
-    <div>
+    <>
       <Button variant="contained" onClick={handleClickOpen}>
-        Edit Wishlist
+        <EditIcon />
       </Button>
       <Dialog open={open} onClose={handleClickClose}>
         <DialogTitle>Edit Wishlist</DialogTitle>
@@ -83,7 +84,7 @@ const EditWishlist = ({ wishlist, setWishlists }) => {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 };
 
