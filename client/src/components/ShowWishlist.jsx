@@ -10,6 +10,8 @@ import EditWishlist from "./EditWishlist";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const ShowWishlist = ({
   wishlists,
@@ -59,10 +61,13 @@ const ShowWishlist = ({
           >
             <ListItemText primary={wishlist.name} />
           </ListItemButton>
-          <button onClick={() => deleteWishlist(wishlist.wishlist_id)}>
-            D
-          </button>
           <EditWishlist wishlist={wishlist} setWishlists={setWishlists} />
+          <Button
+            onClick={() => deleteWishlist(wishlist.wishlist_id)}
+            style={{ minWidth: "30px" }}
+          >
+            <DeleteIcon />
+          </Button>
         </ListItem>
       ))}
     </>

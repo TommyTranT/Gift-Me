@@ -49,7 +49,7 @@ const EditWishlist = ({ wishlist, setWishlists }) => {
 
   return (
     <>
-      <Button variant="contained" onClick={handleClickOpen}>
+      <Button onClick={handleClickOpen} style={{ minWidth: "30px" }}>
         <EditIcon />
       </Button>
       <Dialog open={open} onClose={handleClickClose}>
