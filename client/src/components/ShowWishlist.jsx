@@ -37,10 +37,6 @@ const ShowWishlist = ({
     });
   };
 
-  const editWishlist = (id) => {
-    axios.put(`http://localhost:8080/wishlists/${id}`).then();
-  };
-
   // State that determines which items are displayed based on wishlist selected
   const getItems = (id, name) => {
     axios.get(`http://localhost:8080/items/show/${id}`).then((res) => {
@@ -54,7 +50,11 @@ const ShowWishlist = ({
   return (
     <>
       {wishlists.map((wishlist) => (
-        <ListItem className="show_wishlist" key={wishlist.wishlist_id}>
+        <ListItem
+          className="show_wishlist"
+          key={wishlist.wishlist_id}
+          style={{ backgroundColor: "aliceblue" }}
+        >
           <ListItemButton
             className="name"
             onClick={() => getItems(wishlist.wishlist_id, wishlist.name)} // Change state of which items to display
