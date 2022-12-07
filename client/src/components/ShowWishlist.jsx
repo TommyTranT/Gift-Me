@@ -69,7 +69,12 @@ const ShowWishlist = ({
           >
             <ListItemText primary={wishlist.name} />
           </ListItemButton>
-          <EditWishlist wishlist={wishlist} setWishlists={setWishlists} />
+          <EditWishlist
+            wishlist={wishlist}
+            setWishlists={setWishlists}
+            setWishlistName={setWishlistName}
+            setWishlistDescription={setWishlistDescription}
+          />
           <Button
             onClick={() => deleteWishlist(wishlist.wishlist_id)}
             style={{ minWidth: "30px" }}

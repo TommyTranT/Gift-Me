@@ -18,9 +18,14 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import EditIcon from "@mui/icons-material/Edit";
 
-const EditWishlist = ({ wishlist, setWishlists }) => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+const EditWishlist = ({
+  wishlist,
+  setWishlists,
+  setWishlistDescription,
+  setWishlistName,
+}) => {
+  const [name, setName] = useState(wishlist.name);
+  const [description, setDescription] = useState(wishlist.description);
   const [open, setOpen] = useState(false); // state to show dialog form
 
   const updateWishlist = (e) => {
@@ -32,9 +37,9 @@ const EditWishlist = ({ wishlist, setWishlists }) => {
       .then((res) => {
         axios.get("http://localhost:8080/wishlists").then((res) => {
           setWishlists(res.data);
-          setName("");
-          setDescription("");
           setOpen(false); // Close the dialog form
+          setWishlistName(name);
+          setWishlistDescription(description);
         });
       });
   };
@@ -57,25 +62,25 @@ const EditWishlist = ({ wishlist, setWishlists }) => {
         <DialogContent>
           <TextField
             type="text"
-            label={wishlist.name}
+            label="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             autoComplete="off"
             margin="dense"
             variant="standard"
             fullWidth
-            helperText="Name"
+            placeholder={wishlist.name}
           ></TextField>
           <TextField
             type="text"
-            label={wishlist.description}
+            label="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             autoComplete="off"
             margin="dense"
             variant="standard"
             fullWidth
-            helperText="Description"
+            placeholder={wishlist.description}
           ></TextField>
         </DialogContent>
         <DialogActions>
