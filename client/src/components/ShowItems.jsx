@@ -13,6 +13,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const ShowItems = ({
   wishlists,
@@ -33,43 +35,67 @@ const ShowItems = ({
 
   return (
     <>
-      <h1>{wishlistName}</h1>
+      {/* <h1>{wishlistName}</h1> */}
+      <br />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexFlow: "wrap",
+          justifyContent: "space-evenly",
+        }}
+      >
+        {showWishlists.map((showWishlist) => (
+          <section
+            className="show_items"
+            key={showWishlist.item_id}
+            style={{ marginBottom: "25px" }}
+          >
+            <Card
+              sx={{
+                minWidth: 300,
+                maxWidth: 300,
+                minHeight: 410,
+                maxHeight: 410,
+                marginTop: "15px",
+              }}
+            >
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="300"
+                  image={showWishlist.img_url}
+                  alt="item_image"
+                ></CardMedia>
+                <CardContent>
+                  <Typography gutterBottom style={{ textAlign: "center" }}>
+                    {showWishlist.name}
+                  </Typography>
 
-      {showWishlists.map((showWishlist) => (
-        <section className="show_items" key={showWishlist.item_id}>
-          <Card sx={{ maxWidth: 345, maxHeight: 540 }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="345"
-                image={showWishlist.img_url}
-                alt="item_image"
-              ></CardMedia>
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  {showWishlist.name}
-                </Typography>
-                <Typography gutterBottom variant="h5">
-                  {showWishlist.description}
-                </Typography>
-                <Typography gutterBottom variant="h5">
-                  ${showWishlist.price}
-                </Typography>
-                <Button href={showWishlist.url} target="_blank">
-                  Link
-                </Button>
-                <EditItem
-                  showWishlist={showWishlist}
-                  setShowWishlists={setShowWishlists}
-                />
-                <button onClick={() => deleteItem(showWishlist.item_id)}>
-                  Delete
-                </button>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </section>
-      ))}
+                  <Typography
+                    gutterBottom
+                    style={{ textAlign: "center", fontWeight: "bold" }}
+                  >
+                    ${showWishlist.price}{" "}
+                  </Typography>
+                  <div style={{ textAlign: "center" }}>
+                    <Button href={showWishlist.url} target="_blank">
+                      <OpenInNewIcon />
+                    </Button>
+                    <EditItem
+                      showWishlist={showWishlist}
+                      setShowWishlists={setShowWishlists}
+                    />
+                    <Button onClick={() => deleteItem(showWishlist.item_id)}>
+                      <DeleteIcon />
+                    </Button>
+                  </div>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </section>
+        ))}
+      </div>
     </>
   );
 };
