@@ -33,6 +33,10 @@ const ShowItems = ({
     });
   };
 
+  const refactorePrice = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   return (
     <>
       {/* <h1>{wishlistName}</h1> */}
@@ -80,7 +84,7 @@ const ShowItems = ({
                   </Typography>
 
                   <Typography gutterBottom style={{ textAlign: "center" }}>
-                    ${showWishlist.price}
+                    ${refactorePrice(showWishlist.price)}
                   </Typography>
 
                   <Typography
