@@ -33,6 +33,7 @@ const ShowItems = ({
     });
   };
 
+  // turns 1000 into 1,000
   const refactorePrice = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
