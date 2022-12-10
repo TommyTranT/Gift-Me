@@ -96,9 +96,21 @@ const ShowItems = ({
                   </Typography>
 
                   <div style={{ textAlign: "center" }}>
-                    <Button href={showWishlist.url} target="_blank">
-                      <OpenInNewIcon />
-                    </Button>
+                    {showWishlist.url === "" ? (
+                      <Button
+                        href={showWishlist.url}
+                        target="_blank"
+                        variant="disable"
+                        disabled="true"
+                      >
+                        <OpenInNewIcon />
+                      </Button>
+                    ) : (
+                      <Button href={showWishlist.url} target="_blank">
+                        <OpenInNewIcon />
+                      </Button>
+                    )}
+
                     <EditItem
                       showWishlist={showWishlist}
                       setShowWishlists={setShowWishlists}
