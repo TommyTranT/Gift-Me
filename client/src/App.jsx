@@ -97,7 +97,12 @@ function App() {
   if (wishlistID === "") {
   }
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box
+      sx={{
+        display: "flex",
+        backgroundColor: "#e0eaff",
+      }}
+    >
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -122,6 +127,7 @@ function App() {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
+            backgroundColor: "#c2d6ff",
           },
         }}
         variant="persistent"
@@ -186,7 +192,12 @@ function App() {
               setShowWishlists={setShowWishlists}
             />
           ) : (
-            <Homepage />
+            <div
+              id="homepage"
+              style={{ marginLeft: "10%", marginRight: "10%" }}
+            >
+              <Homepage />
+            </div>
           )}
         </div>
 
