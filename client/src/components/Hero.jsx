@@ -13,7 +13,7 @@ const Hero = () => (
       }}
     >
       <div>
-        <h1 style={{ fontSize: "68px", maxWidth: "470px" }}>
+        <h1 style={{ fontSize: "65px", maxWidth: "470px" }}>
           {" "}
           Make your list <br /> With the products you care about.
         </h1>
@@ -22,7 +22,7 @@ const Hero = () => (
         <img
           src={hero}
           alt="hero"
-          style={{ maxWidth: "800px", maxHeight: "780px" }}
+          style={{ maxWidth: "750px", maxHeight: "780px" }}
         />
       </div>
     </div>

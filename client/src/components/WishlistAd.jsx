@@ -9,9 +9,10 @@ const WishlistAd = () => (
       }}
     >
       <img src={wishlist} alt="wishlistAd" />
-      <div style={{ fontSize: "60px", maxWidth: "500px" }}>
-        <h1>Make a list for anything you can think of.</h1>
-      </div>
+
+      <h1 style={{ fontSize: "60px", maxWidth: "500px" }}>
+        Perfect for the Holidays, birthdays and personal use.
+      </h1>
     </div>
   </section>
 );
