@@ -12,7 +12,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Button, CardActionArea } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import DeleteIcon from "@mui/icons-material/Delete";
 
