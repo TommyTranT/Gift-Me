@@ -97,120 +97,121 @@ function App() {
   if (wishlistID === "") {
   }
   return (
-    <Box
-      sx={{
-        display: "flex",
-        backgroundColor: "#e0eaff",
-      }}
-    >
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h3" noWrap component="div">
-            🎁 Gift Me 🎁
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
+    <div style={{ backgroundColor: "#d6e4ff" }}>
+      <Box
         sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-            backgroundColor: "#c2d6ff",
-          },
+          display: "flex",
         }}
-        variant="persistent"
-        anchor="left"
-        open={open}
       >
-        <DrawerHeader>
-          {/* Add a new wishlist Form */}
-          <AddWishlist wishlists={wishlists} setWishlists={setWishlists} />
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {/* Display all wishlist */}
-          <ShowWishlist
-            wishlists={wishlists}
-            setWishlists={setWishlists}
-            setShowWishlists={setShowWishlists}
-            setWishlistID={setWishlistID}
-            setWishlistName={setWishlistName}
-            setWishlistDescription={setWishlistDescription}
-          />
-        </List>
-      </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-
-        {/* Add new item to specific wishlist */}
-
-        <h1
-          style={{
-            textAlign: "center",
-            fontSize: "50px",
-            marginBottom: "7px",
-          }}
-        >
-          {wishlistName}
-        </h1>
-
-        <p
-          style={{
-            textAlign: "center",
-            fontSize: "25px",
-            fontStyle: "italic",
-            marginTop: "0px",
-          }}
-        >
-          {wishlistDescription}
-        </p>
-
-        <div>
-          {wishlistID ? (
-            <AddItem
-              wishlistID={wishlistID}
-              showWishlists={showWishlists}
-              setShowWishlists={setShowWishlists}
-            />
-          ) : (
-            <div
-              id="homepage"
-              style={{ marginLeft: "10%", marginRight: "10%" }}
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{ mr: 2, ...(open && { display: "none" }) }}
             >
-              <Homepage />
-            </div>
-          )}
-        </div>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h3" noWrap component="div">
+              🎁 Gift Me 🎁
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+              backgroundColor: "#c2d6ff",
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+        >
+          <DrawerHeader>
+            {/* Add a new wishlist Form */}
+            <AddWishlist wishlists={wishlists} setWishlists={setWishlists} />
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            {/* Display all wishlist */}
+            <ShowWishlist
+              wishlists={wishlists}
+              setWishlists={setWishlists}
+              setShowWishlists={setShowWishlists}
+              setWishlistID={setWishlistID}
+              setWishlistName={setWishlistName}
+              setWishlistDescription={setWishlistDescription}
+            />
+          </List>
+        </Drawer>
+        <Main open={open}>
+          <DrawerHeader />
 
-        {/* Display all items for each wishlist */}
-        <ShowItems
-          showWishlists={showWishlists}
-          setShowWishlists={setShowWishlists}
-          wishlists={wishlists}
-          wishlistID={wishlistID}
-          wishlistName={wishlistName}
-        />
-      </Main>
-    </Box>
+          {/* Add new item to specific wishlist */}
+
+          <h1
+            style={{
+              textAlign: "center",
+              fontSize: "50px",
+              marginBottom: "7px",
+            }}
+          >
+            {wishlistName}
+          </h1>
+
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "25px",
+              fontStyle: "italic",
+              marginTop: "0px",
+            }}
+          >
+            {wishlistDescription}
+          </p>
+
+          <div>
+            {wishlistID ? (
+              <AddItem
+                wishlistID={wishlistID}
+                showWishlists={showWishlists}
+                setShowWishlists={setShowWishlists}
+              />
+            ) : (
+              <div
+                id="homepage"
+                style={{ marginLeft: "10%", marginRight: "10%" }}
+              >
+                <Homepage />
+              </div>
+            )}
+          </div>
+
+          {/* Display all items for each wishlist */}
+          <ShowItems
+            showWishlists={showWishlists}
+            setShowWishlists={setShowWishlists}
+            wishlists={wishlists}
+            wishlistID={wishlistID}
+            wishlistName={wishlistName}
+          />
+        </Main>
+      </Box>
+    </div>
   );
 }
 
