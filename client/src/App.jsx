@@ -185,6 +185,7 @@ function App() {
           </p>
 
           <div>
+            {/* If wishlistID is truthy, render add item button, else render homepage */}
             {wishlistID ? (
               <AddItem
                 wishlistID={wishlistID}
