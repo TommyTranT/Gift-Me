@@ -1,7 +1,14 @@
-import React from "react";
+import { wishlist } from "../assets";
 
-const WishlistAd = () => {
-  return <div>WishlistAd</div>;
-};
+const WishlistAd = () => (
+  <section>
+    <div>
+      <img src={wishlist} alt="wishlistAd" />
+      <div>
+        <p>Make a list for</p>
+      </div>
+    </div>
+  </section>
+);
 
 export default WishlistAd;
