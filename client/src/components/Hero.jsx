@@ -1,5 +1,4 @@
 import { fontSize, maxWidth, width } from "@mui/system";
-import React from "react";
 import { hero } from "../assets/";
 
 const Hero = () => (
@@ -8,7 +7,7 @@ const Hero = () => (
       id="home"
       style={{
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-evenly",
         marginRight: "6px",
         marginLeft: "6px",
       }}
@@ -20,7 +19,11 @@ const Hero = () => (
         </h1>
       </div>
       <div>
-        <img src={hero} alt="hero" />
+        <img
+          src={hero}
+          alt="hero"
+          style={{ maxWidth: "800px", maxHeight: "780px" }}
+        />
       </div>
     </div>
   </section>
