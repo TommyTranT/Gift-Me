@@ -117,6 +117,21 @@ app.get("/items/show/:id", async (req, res) => {
   }
 });
 
+// sort by newest
+app.get("/items/show/sort/newest/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const allItem = await pool.query(
+      "SELECT * FROM items WHERE wishlist_id = $1 ORDER BY item_id DESC",
+      [id]
+    );
+
+    res.json(allItem.rows);
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
 // sort by lowest price
 app.get("/items/show/sort/price-lowest/:id", async (req, res) => {
   try {

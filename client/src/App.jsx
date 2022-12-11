@@ -116,6 +116,17 @@ function App() {
       });
   };
 
+  // sort by newest
+  const sortNewest = () => {
+    const id = wishlistID;
+    axios
+      .get(`http://localhost:8080/items/show/sort/newest/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setShowWishlists(res.data);
+      });
+  };
+
   return (
     <div style={{ backgroundColor: "#d6e4ff", fontFamily: "Questrial" }}>
       <Box
@@ -228,6 +239,7 @@ function App() {
             wishlistName={wishlistName}
             sortPriceLowest={sortPriceLowest}
             sortPriceHighest={sortPriceHighest}
+            sortNewest={sortNewest}
           />
         </Main>
       </Box>

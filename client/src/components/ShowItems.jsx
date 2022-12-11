@@ -25,6 +25,7 @@ const ShowItems = ({
   wishlistName,
   sortPriceLowest,
   sortPriceHighest,
+  sortNewest,
 }) => {
   //showWishlists = items database
 
@@ -47,6 +48,7 @@ const ShowItems = ({
       <div>
         <Fab onClick={sortPriceHighest}>Highest</Fab>
         <Fab onClick={sortPriceLowest}>Lowest</Fab>
+        <Fab onClick={sortNewest}>Newest</Fab>
       </div>
       <br />
       <div
