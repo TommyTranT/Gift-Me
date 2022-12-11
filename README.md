@@ -23,6 +23,7 @@ By clicking the 'edit' icon, a form will appear for users to change the lists in
 ### Delete Wishlist
 
 Users can remove a list from clicking the 'trash' button.
+<br />
 ![delete-list](https://user-images.githubusercontent.com/5660854/206913695-f646e85b-f60a-4bb1-8f32-c82865a43b65.gif)
 
 ## Items
@@ -126,3 +127,7 @@ Start the client:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-scripts: 5.0.1
+
+#
+
+Thank you for checking out my project!
