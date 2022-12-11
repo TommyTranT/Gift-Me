@@ -69,7 +69,7 @@ const ShowItems = ({
                 marginTop: "15px",
               }}
             >
-              <CardActionArea href={showWishlist.url} target="_blank">
+              <CardActionArea>
                 <CardMedia
                   component="img"
                   height="300"
@@ -96,6 +96,20 @@ const ShowItems = ({
                   </Typography>
 
                   <div style={{ textAlign: "center" }}>
+                    {showWishlist.url === "" ? (
+                      <Button
+                        href={showWishlist.url}
+                        target="_blank"
+                        variant="disable"
+                        disabled="true"
+                      >
+                        <OpenInNewIcon />
+                      </Button>
+                    ) : (
+                      <Button href={showWishlist.url} target="_blank">
+                        <OpenInNewIcon />
+                      </Button>
+                    )}
                     <EditItem
                       showWishlist={showWishlist}
                       setShowWishlists={setShowWishlists}
