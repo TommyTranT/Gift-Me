@@ -102,7 +102,7 @@ app.post("/items", async (req, res) => {
   }
 });
 
-// select all items based on wishlist_id
+// select all items based on wishlist_id | sort by oldest
 app.get("/items/show/:id", async (req, res) => {
   try {
     const { id } = req.params;
