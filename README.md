@@ -10,6 +10,8 @@ A full-stack single page app where users can create more than one wishlist with 
 
 ### Make Wishlist
 
+![create-wishlist](https://user-images.githubusercontent.com/5660854/206913029-b9fe0f81-c394-478f-bafd-ba6dcee11c6f.gif)
+
 ### Edit Wishlist
 
 ### Delete Wishlist
