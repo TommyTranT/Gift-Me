@@ -18,7 +18,6 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -97,7 +96,7 @@ function App() {
   if (wishlistID === "") {
   }
   return (
-    <div style={{ backgroundColor: "#d6e4ff" }}>
+    <div style={{ backgroundColor: "#d6e4ff", fontFamily: "Questrial" }}>
       <Box
         sx={{
           display: "flex",
@@ -172,7 +171,6 @@ function App() {
           >
             {wishlistName}
           </h1>
-
           <p
             style={{
               textAlign: "center",
