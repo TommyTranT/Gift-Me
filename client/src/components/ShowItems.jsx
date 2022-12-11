@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Fab from "@mui/material/Fab";
 
 const ShowItems = ({
   wishlists,
@@ -22,6 +23,7 @@ const ShowItems = ({
   showWishlists,
   setShowWishlists,
   wishlistName,
+  sortPrice,
 }) => {
   //showWishlists = items database
 
@@ -41,6 +43,9 @@ const ShowItems = ({
   return (
     <>
       {/* <h1>{wishlistName}</h1> */}
+      <div>
+        <Fab onClick={sortPrice}>Sort</Fab>
+      </div>
       <br />
       <div
         style={{

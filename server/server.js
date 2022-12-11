@@ -101,12 +101,28 @@ app.post("/items", async (req, res) => {
     console.error(error.message);
   }
 });
+
 // select all items based on wishlist_id
 app.get("/items/show/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const allItem = await pool.query(
       "SELECT * FROM items WHERE wishlist_id = $1 ORDER BY item_id",
+      [id]
+    );
+
+    res.json(allItem.rows);
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+// select all items based on wishlist_id
+app.get("/items/show/sort/price-highlow/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const allItem = await pool.query(
+      "SELECT * FROM items WHERE wishlist_id = $1 ORDER BY price",
       [id]
     );
 

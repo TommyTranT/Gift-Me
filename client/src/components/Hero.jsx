@@ -13,7 +13,13 @@ const Hero = () => (
       }}
     >
       <div>
-        <h1 style={{ fontSize: "65px", maxWidth: "470px" }}>
+        <h1
+          style={{
+            fontSize: "55px",
+            maxWidth: "470px",
+            fontFamily: "Questrial",
+          }}
+        >
           {" "}
           Make your list <br /> With the products you care about.
         </h1>

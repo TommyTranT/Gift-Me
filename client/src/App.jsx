@@ -7,6 +7,7 @@ import ShowWishlist from "./components/ShowWishlist";
 import AddItem from "./components/AddItem";
 import ShowItems from "./components/ShowItems";
 import Homepage from "./components/Homepage";
+import axios from "axios";
 import styles from "./style";
 
 // material ui
@@ -93,8 +94,17 @@ function App() {
     setOpen(false);
   };
 
-  if (wishlistID === "") {
-  }
+  // sort by price
+  const sortPrice = () => {
+    const id = wishlistID;
+    axios
+      .get(`http://localhost:8080/items/show/sort/price-highlow/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setShowWishlists(res.data);
+      });
+  };
+
   return (
     <div style={{ backgroundColor: "#d6e4ff", fontFamily: "Questrial" }}>
       <Box
@@ -160,8 +170,6 @@ function App() {
         <Main open={open}>
           <DrawerHeader />
 
-          {/* Add new item to specific wishlist */}
-
           <h1
             style={{
               textAlign: "center",
@@ -207,6 +215,7 @@ function App() {
             wishlists={wishlists}
             wishlistID={wishlistID}
             wishlistName={wishlistName}
+            sortPrice={sortPrice}
           />
         </Main>
       </Box>
