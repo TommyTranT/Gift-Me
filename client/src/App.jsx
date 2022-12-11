@@ -94,11 +94,22 @@ function App() {
     setOpen(false);
   };
 
-  // sort by price
-  const sortPrice = () => {
+  // sort by price low-high
+  const sortPriceLowest = () => {
     const id = wishlistID;
     axios
-      .get(`http://localhost:8080/items/show/sort/price-highlow/${id}`)
+      .get(`http://localhost:8080/items/show/sort/price-lowest/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setShowWishlists(res.data);
+      });
+  };
+
+  // sort by price high-low
+  const sortPriceHighest = () => {
+    const id = wishlistID;
+    axios
+      .get(`http://localhost:8080/items/show/sort/price-highest/${id}`)
       .then((res) => {
         console.log(res.data);
         setShowWishlists(res.data);
@@ -215,7 +226,8 @@ function App() {
             wishlists={wishlists}
             wishlistID={wishlistID}
             wishlistName={wishlistName}
-            sortPrice={sortPrice}
+            sortPriceLowest={sortPriceLowest}
+            sortPriceHighest={sortPriceHighest}
           />
         </Main>
       </Box>
