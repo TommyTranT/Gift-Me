@@ -88,16 +88,13 @@ const ShowItems = ({
             <div style={{ width: "300px" }}>
               <p>Sort Items</p>
               <Divider />
-
               <p>Sort by Price</p>
               <ListItemButton onClick={sortPriceHighest}>
                 Highest
               </ListItemButton>
               <ListItemButton onClick={sortPriceLowest}>Lowest</ListItemButton>
               <Divider />
-
               <p>Sort by Newest to Oldest</p>
-
               <ListItemButton onClick={sortNewest}>Newest</ListItemButton>
               <ListItemButton onClick={sortOldest}>Oldest</ListItemButton>
             </div>
