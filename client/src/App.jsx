@@ -248,6 +248,8 @@ function App() {
             sortPriceHighest={sortPriceHighest}
             sortNewest={sortNewest}
             sortOldest={sortOldest}
+            DrawerHeader={DrawerHeader}
+            theme={theme}
           />
         </Main>
       </Box>

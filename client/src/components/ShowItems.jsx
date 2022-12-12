@@ -24,15 +24,14 @@ import IconButton from "@mui/material/IconButton";
 import Divider from "@mui/material/Divider";
 
 const ShowItems = ({
-  wishlists,
-  wishlistID,
   showWishlists,
   setShowWishlists,
-  wishlistName,
   sortPriceLowest,
   sortPriceHighest,
   sortNewest,
   sortOldest,
+  DrawerHeader,
+  theme,
 }) => {
   //showWishlists = items database
   const [openSort, setOpenSort] = useState(false);
@@ -54,19 +53,27 @@ const ShowItems = ({
     setOpenSort(true);
   };
 
+  const handleDrawerClose = () => {
+    setOpenSort(false);
+  };
+
   return (
     <>
       {/* <h1>{wishlistName}</h1> */}
-      <Button variant="contained" onClick={handleDrawerOpen}>
-        Sort
-      </Button>
+      <div
+        style={{ display: "flex", justifyContent: "end", marginRight: "15px" }}
+      >
+        <Button variant="contained" onClick={handleDrawerOpen}>
+          Sort
+        </Button>
+      </div>
       <Drawer open={openSort} anchor="right">
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
               <ChevronRightIcon />
+            ) : (
+              <ChevronLeftIcon />
             )}
           </IconButton>
         </DrawerHeader>
