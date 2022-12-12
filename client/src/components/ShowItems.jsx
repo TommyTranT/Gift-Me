@@ -6,6 +6,7 @@ Show Items Component - Display all items
 
 import axios from "axios";
 import EditItem from "./EditItem";
+import { useState } from "react";
 
 // material ui
 import Card from "@mui/material/Card";
@@ -16,6 +17,11 @@ import { Button, CardActionArea } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Fab from "@mui/material/Fab";
+import Drawer from "@mui/material/Drawer";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import IconButton from "@mui/material/IconButton";
+import Divider from "@mui/material/Divider";
 
 const ShowItems = ({
   wishlists,
@@ -29,6 +35,7 @@ const ShowItems = ({
   sortOldest,
 }) => {
   //showWishlists = items database
+  const [openSort, setOpenSort] = useState(false);
 
   const deleteItem = (id) => {
     axios.delete(`http://localhost:8080/items/${id}`).then((res) => {
@@ -43,15 +50,34 @@ const ShowItems = ({
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  const handleDrawerOpen = () => {
+    setOpenSort(true);
+  };
+
   return (
     <>
       {/* <h1>{wishlistName}</h1> */}
-      <div>
-        <Fab onClick={sortPriceHighest}>Highest</Fab>
-        <Fab onClick={sortPriceLowest}>Lowest</Fab>
-        <Fab onClick={sortNewest}>Newest</Fab>
-        <Fab onClick={sortOldest}>Oldest</Fab>
-      </div>
+      <Button variant="contained" onClick={handleDrawerOpen}>
+        Sort
+      </Button>
+      <Drawer open={openSort} anchor="right">
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <div>
+          <Fab onClick={sortPriceHighest}>Highest</Fab>
+          <Fab onClick={sortPriceLowest}>Lowest</Fab>
+          <Fab onClick={sortNewest}>Newest</Fab>
+          <Fab onClick={sortOldest}>Oldest</Fab>
+        </div>
+      </Drawer>
       <br />
       <div
         style={{
