@@ -22,6 +22,9 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import IconButton from "@mui/material/IconButton";
 import Divider from "@mui/material/Divider";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItem from "@mui/material/ListItem";
 
 const ShowItems = ({
   showWishlists,
@@ -63,7 +66,7 @@ const ShowItems = ({
       <div
         style={{ display: "flex", justifyContent: "end", marginRight: "15px" }}
       >
-        <Button variant="contained" onClick={handleDrawerOpen}>
+        <Button variant="contained" onClick={handleDrawerOpen} size="large">
           Sort
         </Button>
       </div>
@@ -78,12 +81,26 @@ const ShowItems = ({
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <div>
-          <Fab onClick={sortPriceHighest}>Highest</Fab>
-          <Fab onClick={sortPriceLowest}>Lowest</Fab>
-          <Fab onClick={sortNewest}>Newest</Fab>
-          <Fab onClick={sortOldest}>Oldest</Fab>
-        </div>
+        <List>
+          <ListItem>
+            <div style={{ width: "300px" }}>
+              <p>Sort Items</p>
+              <Divider />
+
+              <p>Sort by Price</p>
+              <ListItemButton onClick={sortPriceHighest}>
+                Highest
+              </ListItemButton>
+              <ListItemButton onClick={sortPriceLowest}>Lowest</ListItemButton>
+              <Divider />
+
+              <p>Sort by Newest to Oldest</p>
+
+              <ListItemButton onClick={sortNewest}>Newest</ListItemButton>
+              <ListItemButton onClick={sortOldest}>Oldest</ListItemButton>
+            </div>
+          </ListItem>
+        </List>
       </Drawer>
       <br />
       <div
