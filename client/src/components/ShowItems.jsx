@@ -25,6 +25,7 @@ import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItem from "@mui/material/ListItem";
+import SortIcon from "@mui/icons-material/Sort";
 
 const ShowItems = ({
   showWishlists,
@@ -66,9 +67,10 @@ const ShowItems = ({
       <div
         style={{ display: "flex", justifyContent: "end", marginRight: "15px" }}
       >
-        <Button variant="contained" onClick={handleDrawerOpen} size="large">
+        <Fab onClick={handleDrawerOpen} variant="extended" color="primary">
+          <SortIcon />
           Sort
-        </Button>
+        </Fab>
       </div>
       <Drawer open={openSort} anchor="right">
         <DrawerHeader>
