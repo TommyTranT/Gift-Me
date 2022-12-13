@@ -6,7 +6,7 @@ Show Items Component - Display all items
 
 import axios from "axios";
 import EditItem from "./EditItem";
-
+import ShowSingleItem from "./ShowSingleItem";
 import { useState } from "react";
 
 // material ui
@@ -14,7 +14,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea } from "@mui/material";
+import { Button } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Fab from "@mui/material/Fab";
@@ -40,7 +40,6 @@ const ShowItems = ({
 }) => {
   //showWishlists = items database
   const [openSort, setOpenSort] = useState(false);
-  const [openItem, setOpenItem] = useState(false);
 
   const deleteItem = (id) => {
     axios.delete(`http://localhost:8080/items/${id}`).then((res) => {
@@ -131,33 +130,31 @@ const ShowItems = ({
                 marginTop: "15px",
               }}
             >
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="300"
-                  image={showWishlist.img_url}
-                  alt="item_image"
-                ></CardMedia>
-                <CardContent style={{ paddingBottom: 0 }}>
-                  <Typography
-                    gutterBottom
-                    style={{ textAlign: "center", fontWeight: "bold" }}
-                  >
-                    {showWishlist.name}
-                  </Typography>
+              <CardMedia
+                component="img"
+                height="300"
+                image={showWishlist.img_url}
+                alt="item_image"
+              ></CardMedia>
+              <CardContent style={{ paddingBottom: 0 }}>
+                <Typography
+                  gutterBottom
+                  style={{ textAlign: "center", fontWeight: "bold" }}
+                >
+                  {showWishlist.name}
+                </Typography>
 
-                  <Typography gutterBottom style={{ textAlign: "center" }}>
-                    ${refactorePrice(showWishlist.price)}
-                  </Typography>
+                <Typography gutterBottom style={{ textAlign: "center" }}>
+                  ${refactorePrice(showWishlist.price)}
+                </Typography>
 
-                  <Typography
-                    gutterBottom
-                    style={{ textAlign: "center", fontStyle: "italic" }}
-                  >
-                    {showWishlist.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
+                <Typography
+                  gutterBottom
+                  style={{ textAlign: "center", fontStyle: "italic" }}
+                >
+                  {showWishlist.description}
+                </Typography>
+              </CardContent>
 
               <div style={{ textAlign: "center" }}>
                 {showWishlist.url === "" ? (
@@ -175,6 +172,10 @@ const ShowItems = ({
                   </Button>
                 )}
                 <EditItem
+                  showWishlist={showWishlist}
+                  setShowWishlists={setShowWishlists}
+                />
+                <ShowSingleItem
                   showWishlist={showWishlist}
                   setShowWishlists={setShowWishlists}
                 />
