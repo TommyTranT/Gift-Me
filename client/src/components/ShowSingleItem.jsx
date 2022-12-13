@@ -10,11 +10,11 @@ import OpenInBrowserIcon from "@mui/icons-material/OpenInBrowser";
 import { Typography } from "@mui/material";
 
 const ShowSingleItem = ({ showWishlist }) => {
-  const [name, setName] = useState(showWishlist.name);
-  const [description, setDescription] = useState(showWishlist.description);
-  const [price, setPrice] = useState(showWishlist.price);
-  const [img_url, setImgUrl] = useState(showWishlist.img_url);
-  const [url, setUrl] = useState(showWishlist.url);
+  const [name] = useState(showWishlist.name);
+  const [description] = useState(showWishlist.description);
+  const [price] = useState(showWishlist.price);
+  const [img_url] = useState(showWishlist.img_url);
+  const [url] = useState(showWishlist.url);
   const [openItem, setItemOpen] = useState(false); // state to show dialog form
 
   const handleItemOpen = () => {
