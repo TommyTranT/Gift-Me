@@ -7,6 +7,7 @@ Show Items Component - Display all items
 import axios from "axios";
 import EditItem from "./EditItem";
 import { useState } from "react";
+import ShowSingleItem from "./ShowSingleItem";
 
 // material ui
 import Card from "@mui/material/Card";
