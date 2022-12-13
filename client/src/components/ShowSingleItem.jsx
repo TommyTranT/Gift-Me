@@ -31,14 +31,18 @@ const ShowSingleItem = ({ showWishlist, setShowWishlists }) => {
         <OpenInBrowserIcon />
       </Button>
       <Dialog open={open} onClose={handleClickClose} maxWidth="xl" fullWidth>
-        <DialogTitle>Edit Item</DialogTitle>
+        <DialogTitle>{name}</DialogTitle>
         <DialogContent>
           <Typography>
-            <img src={img_url} style={{ height: 750, width: 750 }} />
-            <div>
-              <p>{name}</p>
-              <p>{description}</p>
-              <p>{price}</p>
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+              <img src={img_url} style={{ height: 575, width: 575 }} />
+              <div>
+                <p style={{ fontSize: 35, fontWeight: "bold", width: "416px" }}>
+                  {name}
+                </p>
+                <p style={{ fontSize: 25 }}>{price}</p>
+                <p style={{ fontSize: 15 }}>{description}</p>
+              </div>
             </div>
           </Typography>
         </DialogContent>
