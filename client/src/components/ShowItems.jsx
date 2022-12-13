@@ -6,8 +6,8 @@ Show Items Component - Display all items
 
 import axios from "axios";
 import EditItem from "./EditItem";
+
 import { useState } from "react";
-import ShowSingleItem from "./ShowSingleItem";
 
 // material ui
 import Card from "@mui/material/Card";
@@ -40,6 +40,7 @@ const ShowItems = ({
 }) => {
   //showWishlists = items database
   const [openSort, setOpenSort] = useState(false);
+  const [openItem, setOpenItem] = useState(false);
 
   const deleteItem = (id) => {
     axios.delete(`http://localhost:8080/items/${id}`).then((res) => {
@@ -137,7 +138,7 @@ const ShowItems = ({
                   image={showWishlist.img_url}
                   alt="item_image"
                 ></CardMedia>
-                <CardContent>
+                <CardContent style={{ paddingBottom: 0 }}>
                   <Typography
                     gutterBottom
                     style={{ textAlign: "center", fontWeight: "bold" }}
@@ -155,32 +156,32 @@ const ShowItems = ({
                   >
                     {showWishlist.description}
                   </Typography>
-
-                  <div style={{ textAlign: "center" }}>
-                    {showWishlist.url === "" ? (
-                      <Button
-                        href={showWishlist.url}
-                        target="_blank"
-                        variant="disable"
-                        disabled="true"
-                      >
-                        <OpenInNewIcon />
-                      </Button>
-                    ) : (
-                      <Button href={showWishlist.url} target="_blank">
-                        <OpenInNewIcon />
-                      </Button>
-                    )}
-                    <EditItem
-                      showWishlist={showWishlist}
-                      setShowWishlists={setShowWishlists}
-                    />
-                    <Button onClick={() => deleteItem(showWishlist.item_id)}>
-                      <DeleteIcon />
-                    </Button>
-                  </div>
                 </CardContent>
               </CardActionArea>
+
+              <div style={{ textAlign: "center" }}>
+                {showWishlist.url === "" ? (
+                  <Button
+                    href={showWishlist.url}
+                    target="_blank"
+                    variant="disable"
+                    disabled="true"
+                  >
+                    <OpenInNewIcon />
+                  </Button>
+                ) : (
+                  <Button href={showWishlist.url} target="_blank">
+                    <OpenInNewIcon />
+                  </Button>
+                )}
+                <EditItem
+                  showWishlist={showWishlist}
+                  setShowWishlists={setShowWishlists}
+                />
+                <Button onClick={() => deleteItem(showWishlist.item_id)}>
+                  <DeleteIcon />
+                </Button>
+              </div>
             </Card>
           </section>
         ))}
