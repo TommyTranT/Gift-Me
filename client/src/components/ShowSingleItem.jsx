@@ -15,22 +15,22 @@ const ShowSingleItem = ({ showWishlist, setShowWishlists }) => {
   const [price, setPrice] = useState(showWishlist.price);
   const [img_url, setImgUrl] = useState(showWishlist.img_url);
   const [url, setUrl] = useState(showWishlist.url);
-  const [open, setOpen] = useState(false); // state to show dialog form
+  const [openItem, setItemOpen] = useState(false); // state to show dialog form
 
-  const handleClickOpen = () => {
-    setOpen(true); // Open the dialog form
+  const handleItemOpen = () => {
+    setItemOpen(true); // Open the dialog form
   };
 
-  const handleClickClose = () => {
-    setOpen(false); // Close the dialog form
+  const handleItemClose = () => {
+    setItemOpen(false); // Close the dialog form
   };
-  Bla;
+
   return (
     <>
-      <Button onClick={handleClickOpen}>
+      <Button onClick={handleItemOpen}>
         <OpenInBrowserIcon />
       </Button>
-      <Dialog open={open} onClose={handleClickClose} maxWidth="xl" fullWidth>
+      <Dialog open={openItem} onClose={handleItemClose} maxWidth="xl" fullWidth>
         <DialogTitle>{name}</DialogTitle>
         <DialogContent>
           <Typography>
@@ -50,7 +50,7 @@ const ShowSingleItem = ({ showWishlist, setShowWishlists }) => {
           <Button variant="contained" href={url} target="_blank">
             Buy
           </Button>
-          <Button variant="contained" onClick={handleClickClose}>
+          <Button variant="contained" onClick={handleItemClose}>
             Cancel
           </Button>
         </DialogActions>
