@@ -1,3 +1,8 @@
+/*
+Show Single Item
+Basically copied from Edit Item but removed form and axios call
+*/
+
 import { useState } from "react";
 
 // material ui
