@@ -40,7 +40,11 @@ const ShowSingleItem = ({ showWishlist }) => {
         <DialogContent>
           <Typography>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-              <img src={img_url} style={{ height: 575, width: 575 }} />
+              <img
+                src={img_url}
+                style={{ height: 575, width: 575 }}
+                alt="item_img"
+              />
               <div>
                 <p style={{ fontSize: 35, fontWeight: "bold", width: "416px" }}>
                   {name}
