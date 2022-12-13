@@ -125,7 +125,7 @@ const ShowItems = ({
               sx={{
                 maxWidth: 290,
                 minWidth: 290,
-                minHeight: 440,
+                minHeight: 420,
                 maxHeight: 440,
                 marginTop: "15px",
               }}
@@ -146,13 +146,6 @@ const ShowItems = ({
 
                 <Typography gutterBottom style={{ textAlign: "center" }}>
                   ${refactorePrice(showWishlist.price)}
-                </Typography>
-
-                <Typography
-                  gutterBottom
-                  style={{ textAlign: "center", fontStyle: "italic" }}
-                >
-                  {showWishlist.description}
                 </Typography>
               </CardContent>
 

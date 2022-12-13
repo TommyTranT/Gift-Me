@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import OpenInBrowserIcon from "@mui/icons-material/OpenInBrowser";
 import { Typography } from "@mui/material";
 
-const ShowSingleItem = ({ showWishlist, setShowWishlists }) => {
+const ShowSingleItem = ({ showWishlist }) => {
   const [name, setName] = useState(showWishlist.name);
   const [description, setDescription] = useState(showWishlist.description);
   const [price, setPrice] = useState(showWishlist.price);
