@@ -1,18 +1,10 @@
 import React from "react";
-import Hero from "./Hero";
-import WishlistAd from "./WishlistAd";
-import ItemAd from "./ItemAd";
-import Footer from "./Footer";
+import { ReactComponent as Coffee } from "../assets/coffee.svg";
 
 const Homepage = () => {
   return (
     <section>
-      <div>
-        <Hero />
-      </div>
-
-      <WishlistAd />
-      <ItemAd />
+      <Coffee />
     </section>
   );
 };

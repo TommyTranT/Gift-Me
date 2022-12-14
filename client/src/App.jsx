@@ -222,11 +222,28 @@ function App() {
           <div>
             {/* If wishlistID is truthy, render add item button, else render homepage */}
             {wishlistID ? (
-              <AddItem
-                wishlistID={wishlistID}
-                showWishlists={showWishlists}
-                setShowWishlists={setShowWishlists}
-              />
+              <div>
+                <AddItem
+                  wishlistID={wishlistID}
+                  showWishlists={showWishlists}
+                  setShowWishlists={setShowWishlists}
+                />
+
+                {/* Display all items for each wishlist */}
+                <ShowItems
+                  showWishlists={showWishlists}
+                  setShowWishlists={setShowWishlists}
+                  wishlists={wishlists}
+                  wishlistID={wishlistID}
+                  wishlistName={wishlistName}
+                  sortPriceLowest={sortPriceLowest}
+                  sortPriceHighest={sortPriceHighest}
+                  sortNewest={sortNewest}
+                  sortOldest={sortOldest}
+                  DrawerHeader={DrawerHeader}
+                  theme={theme}
+                />
+              </div>
             ) : (
               <div
                 id="homepage"
@@ -236,21 +253,6 @@ function App() {
               </div>
             )}
           </div>
-
-          {/* Display all items for each wishlist */}
-          <ShowItems
-            showWishlists={showWishlists}
-            setShowWishlists={setShowWishlists}
-            wishlists={wishlists}
-            wishlistID={wishlistID}
-            wishlistName={wishlistName}
-            sortPriceLowest={sortPriceLowest}
-            sortPriceHighest={sortPriceHighest}
-            sortNewest={sortNewest}
-            sortOldest={sortOldest}
-            DrawerHeader={DrawerHeader}
-            theme={theme}
-          />
         </Main>
       </Box>
     </div>
