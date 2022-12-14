@@ -36,7 +36,6 @@ const ShowSingleItem = ({ showWishlist }) => {
         <OpenInBrowserIcon />
       </Button>
       <Dialog open={openItem} onClose={handleItemClose} maxWidth="xl" fullWidth>
-        <DialogTitle>{name}</DialogTitle>
         <DialogContent>
           <Typography>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -46,11 +45,13 @@ const ShowSingleItem = ({ showWishlist }) => {
                 alt="item_img"
               />
               <div>
-                <p style={{ fontSize: 35, fontWeight: "bold", width: "416px" }}>
+                <p style={{ fontSize: 35, fontWeight: "bold", width: "420px" }}>
                   {name}
                 </p>
-                <p style={{ fontSize: 25 }}>{price}</p>
-                <p style={{ fontSize: 15 }}>{description}</p>
+                <p style={{ fontSize: 25 }}>${price}</p>
+                <p style={{ fontSize: 20, fontStyle: "italic" }}>
+                  {description}
+                </p>
               </div>
             </div>
           </Typography>
