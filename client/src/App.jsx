@@ -249,7 +249,7 @@ function App() {
                 id="homepage"
                 style={{ marginLeft: "10%", marginRight: "10%" }}
               >
-                <Homepage />
+                <Homepage setOpen={setOpen} />
               </div>
             )}
           </div>
