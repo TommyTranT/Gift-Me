@@ -8,6 +8,7 @@ import { ReactComponent as Wishes } from "../assets/wishes.svg";
 import { ReactComponent as Wishlist } from "../assets/wishlist.svg";
 import { ReactComponent as Birthday } from "../assets/birthday.svg";
 import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
 
 const Homepage = ({ setOpen }) => {
   return (
@@ -32,7 +33,7 @@ const Homepage = ({ setOpen }) => {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Button
               variant="contained"
-              style={{ fontSize: "30px", marginTop: "50px" }}
+              style={{ fontSize: "23px", marginTop: "50px" }}
               onClick={(e) => setOpen(true)}
             >
               Get Started Here!

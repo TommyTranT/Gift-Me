@@ -6,14 +6,14 @@ A full-stack single page app where users can create more than one wishlist with 
 
 ## Homepage
 
-<img width="1267" alt="Screen Shot 2022-12-11 at 11 18 15 AM (2)" src="https://user-images.githubusercontent.com/5660854/206915337-39679dd4-3bea-4d0e-8f6c-44e7ba580ffc.png">
+<img width="1257" alt="Screen Shot 2022-12-15 at 1 22 04 PM (2)" src="https://user-images.githubusercontent.com/5660854/207938899-4ea7b578-3484-42c3-8c90-a2cd6aac4b6b.png">
 
 ## Wishlists
 
 ### Make Wishlist
 
 By clicking the 'New Wishlist' button, a form will appear for users to enter the list information.
-![create-wishlist](https://user-images.githubusercontent.com/5660854/206913029-b9fe0f81-c394-478f-bafd-ba6dcee11c6f.gif)
+![create-wishlist](https://user-images.githubusercontent.com/5660854/207939108-29493bdb-ff6c-4d4c-94ae-5069f1e1ed9b.gif)
 
 ### Edit Wishlist
 
