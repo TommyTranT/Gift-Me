@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import "./App.css";
 
 // components
@@ -8,7 +8,6 @@ import AddItem from "./components/AddItem";
 import ShowItems from "./components/ShowItems";
 import Homepage from "./components/Homepage";
 import axios from "axios";
-import styles from "./style";
 
 // material ui
 import { styled, useTheme } from "@mui/material/styles";
@@ -20,7 +19,7 @@ import List from "@mui/material/List";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+
 import { CssBaseline } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";

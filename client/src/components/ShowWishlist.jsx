@@ -5,7 +5,7 @@ Show Wishlist Component - Display all wishlists
 */
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import EditWishlist from "./EditWishlist";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";

@@ -19,7 +19,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import EditIcon from "@mui/icons-material/Edit";
-import { Typography } from "@mui/material";
 
 const EditItem = ({ showWishlist, setShowWishlists }) => {
   const [name, setName] = useState(showWishlist.name);
