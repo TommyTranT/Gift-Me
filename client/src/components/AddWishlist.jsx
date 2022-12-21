@@ -29,13 +29,15 @@ const AddWishlist = ({ wishlists, setWishlists }) => {
     e.preventDefault();
     const body = { name, description };
 
-    axios.post("http://localhost:8080/wishlists", body).then((res) => {
-      setName("");
-      setDescription("");
+    axios
+      .post(`${process.env.REACT_APP_BROWSER}wishlists`, body)
+      .then((res) => {
+        setName("");
+        setDescription("");
 
-      setWishlists([...wishlists, res.data]); // State for displaying wishlist plus new data
-      setOpen(false); // Close the dialog form
-    });
+        setWishlists([...wishlists, res.data]); // State for displaying wishlist plus new data
+        setOpen(false); // Close the dialog form
+      });
   };
 
   const handleClickOpen = () => {
