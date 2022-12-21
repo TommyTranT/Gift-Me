@@ -30,6 +30,8 @@ const ShowWishlist = ({
 
   useEffect(() => {
     getWishlist();
+    // Used to remove eslint warning
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteWishlist = (id) => {
