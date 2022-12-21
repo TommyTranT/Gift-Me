@@ -96,7 +96,7 @@ function App() {
   const sortPriceLowest = () => {
     const id = wishlistID;
     axios
-      .get(`http://localhost:8080/items/show/sort/price-lowest/${id}`)
+      .get(`${process.env.REACT_APP_BROWSER}items/show/sort/price-lowest/${id}`)
       .then((res) => {
         console.log(res.data);
         setShowWishlists(res.data);
