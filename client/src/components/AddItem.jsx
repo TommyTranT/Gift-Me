@@ -31,7 +31,7 @@ const AddItem = ({ wishlistID, showWishlists, setShowWishlists }) => {
     const wishlist_id = wishlistID;
     const body = { name, description, price, img_url, url, wishlist_id };
 
-    axios.post("http://localhost:8080/items", body).then((res) => {
+    axios.post(`${process.env.REACT_APP_BROWSER}items`, body).then((res) => {
       setName("");
       setDescription("");
       setPrice("");
