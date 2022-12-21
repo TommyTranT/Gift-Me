@@ -42,7 +42,7 @@ const ShowItems = ({
   const [openSort, setOpenSort] = useState(false);
 
   const deleteItem = (id) => {
-    axios.delete(`http://localhost:8080/items/${id}`).then((res) => {
+    axios.delete(`${process.env.REACT_APP_BROWSER}items/${id}`).then((res) => {
       setShowWishlists(
         showWishlists.filter((showWishList) => showWishList.item_id !== id)
       );
