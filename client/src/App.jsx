@@ -154,7 +154,7 @@ function App() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h3" noWrap component="div">
-              🎁 Gift Me 🎁
+              Gift Me 🎁
             </Typography>
           </Toolbar>
         </AppBar>
