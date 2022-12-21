@@ -23,7 +23,7 @@ const ShowWishlist = ({
 }) => {
   // Display all wishlist from database
   const getWishlist = () => {
-    axios.get("http://localhost:8080/wishlists").then((res) => {
+    axios.get(`${process.env.REACT_APP_BROWSER}wishlists`).then((res) => {
       setWishlists(res.data);
     });
   };
@@ -33,17 +33,23 @@ const ShowWishlist = ({
   }, []);
 
   const deleteWishlist = (id) => {
-    axios.delete(`http://localhost:8080/wishlists/${id}`).then((res) => {
-      setWishlists(wishlists.filter((wishlist) => wishlist.wishlist_id !== id));
-    });
+    axios
+      .delete(`${process.env.REACT_APP_BROWSER}wishlists/${id}`)
+      .then((res) => {
+        setWishlists(
+          wishlists.filter((wishlist) => wishlist.wishlist_id !== id)
+        );
+      });
   };
 
   // State that determines which items are displayed based on wishlist selected
   const getItems = (id, name, description) => {
-    axios.get(`http://localhost:8080/items/show/${id}`).then((res) => {
-      console.log(res.data);
-      setShowWishlists(res.data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_BROWSER}items/show/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setShowWishlists(res.data);
+      });
     setWishlistID(id); // State to send wishlist id
     setWishlistName(name); // State to display wishlist name
     setWishlistDescription(description); // State to display wishlist description
