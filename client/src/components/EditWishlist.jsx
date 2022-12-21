@@ -33,9 +33,9 @@ const EditWishlist = ({
     const body = { name, description };
     const wishlistId = wishlist.wishlist_id;
     axios
-      .put(`http://localhost:8080/wishlists/${wishlistId}`, body)
+      .put(`${process.env.REACT_APP_BROWSER}wishlists/${wishlistId}`, body)
       .then((res) => {
-        axios.get("http://localhost:8080/wishlists").then((res) => {
+        axios.get(`${process.env.REACT_APP_BROWSER}wishlists`).then((res) => {
           setWishlists(res.data);
           setOpen(false); // Close the dialog form
           setWishlistName(name);
