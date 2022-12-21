@@ -160,7 +160,7 @@ const ShowItems = ({
                     href={showWishlist.url}
                     target="_blank"
                     variant="disable"
-                    disabled="true"
+                    disabled={true}
                   >
                     <OpenInNewIcon />
                   </Button>
