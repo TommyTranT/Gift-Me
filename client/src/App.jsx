@@ -107,7 +107,9 @@ function App() {
   const sortPriceHighest = () => {
     const id = wishlistID;
     axios
-      .get(`http://localhost:8080/items/show/sort/price-highest/${id}`)
+      .get(
+        `${process.env.REACT_APP_BROWSER}items/show/sort/price-highest/${id}`
+      )
       .then((res) => {
         console.log(res.data);
         setShowWishlists(res.data);
@@ -117,17 +119,19 @@ function App() {
   // sort by oldest
   const sortOldest = () => {
     const id = wishlistID;
-    axios.get(`http://localhost:8080/items/show/${id}`).then((res) => {
-      console.log(res.data);
-      setShowWishlists(res.data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_BROWSER}items/show/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setShowWishlists(res.data);
+      });
   };
 
   // sort by newest
   const sortNewest = () => {
     const id = wishlistID;
     axios
-      .get(`http://localhost:8080/items/show/sort/newest/${id}`)
+      .get(`${process.env.REACT_APP_BROWSER}items/show/sort/newest/${id}`)
       .then((res) => {
         console.log(res.data);
         setShowWishlists(res.data);
