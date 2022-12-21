@@ -35,14 +35,16 @@ const EditItem = ({ showWishlist, setShowWishlists }) => {
     const itemId = showWishlist.item_id;
     const wishListId = showWishlist.wishlist_id;
     console.log("Item successfully updated");
-    axios.put(`http://localhost:8080/items/${itemId}`, body).then((res) => {
-      axios
-        .get(`http://localhost:8080/items/show/${wishListId}`)
-        .then((res) => {
-          setShowWishlists(res.data);
-          setOpen(false); // Close the dialog form
-        });
-    });
+    axios
+      .put(`${process.env.REACT_APP_BROWSER}items/${itemId}`, body)
+      .then((res) => {
+        axios
+          .get(`${process.env.REACT_APP_BROWSER}items/show/${wishListId}`)
+          .then((res) => {
+            setShowWishlists(res.data);
+            setOpen(false); // Close the dialog form
+          });
+      });
   };
 
   const handleClickOpen = () => {
